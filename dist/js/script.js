@@ -101,9 +101,9 @@
       const thisProduct = this;
 
       /* find the clickable trigger (the element that should react to clicking) */
-      const clickableTrigger = thisProduct.element.querySelector(
+      /*const clickableTrigger = thisProduct.element.querySelector(
         select.menuProduct.clickable
-      );
+      );*/
 
       /* START: add event listener to clickable trigger on event click */
       thisProduct.accordionTrigger.addEventListener('click', function (event) {
@@ -114,13 +114,14 @@
           classNames.menuProduct.wrapperActive
         );
         /* if there is active product and it's not thisProduct.element, remove class active from it */
-        if (activeProduct !== thisProduct.element) {
-          thisProduct.element.classList.toggle(
+
+        if (activeProduct !== thisProduct.element && activeProduct) {
+          thisProduct.element.classList.remove(
             classNames.menuProduct.wrapperActive
           );
         }
         /* toggle active class on thisProduct.element */
-        select.menuProduct.clickable.classList.toggle(
+        thisProduct.element.classList.toggle(
           classNames.menuProduct.wrapperActive
         );
       });
